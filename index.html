@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사내규정 Q&A 챗봇</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 로딩 오버레이 -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>규정 데이터 로딩 중...</p>
+        </div>
+    </div>
+
+    <!-- 헤더 -->
+    <header class="app-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="company-logo">🏢</div>
+                    <div class="logo-text">
+                        <h1>사내규정 Q&A 챗봇</h1>
+                        <small>하이브리드 검색 시스템 v1.0</small>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="category-filter-btn" onclick="toggleCategoryFilter()">
+                        📂 카테고리
+                    </button>
+                    <button class="admin-btn" onclick="toggleAdminMode()">
+                        ⚙️ 관리자
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 카테고리 필터 바 -->
+    <div class="category-bar hidden" id="categoryBar">
+        <div class="container">
+            <div class="category-filters">
+                <button class="category-btn active" data-category="all" onclick="filterByCategory('all')">전체</button>
+                <button class="category-btn" data-category="출장" onclick="filterByCategory('출장')">출장</button>
+                <button class="category-btn" data-category="휴가" onclick="filterByCategory('휴가')">휴가</button>
+                <button class="category-btn" data-category="복리후생" onclick="filterByCategory('복리후생')">복리후생</button>
+                <button class="category-btn" data-category="재무" onclick="filterByCategory('재무')">재무</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 메인 컨테이너 -->
+    <main class="main-container">
+        <div class="container">
+            <!-- 사이드바 -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>최근 질문</h3>
+                    <div class="recent-questions" id="recentQuestions">
+                        <!-- 최근 질문들이 여기에 표시됩니다 -->
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>자주 묻는 질문</h3>
+                    <div class="faq-list" id="faqList">
+                        <!-- 자주 묻는 질문들이 여기에 표시됩니다 -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- 채팅 영역 -->
+            <div class="chat-area">
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="welcome-message">
+                            <div class="welcome-icon">🤖</div>
+                            <h3>사내규정 Q&A 챗봇에 오신 것을 환영합니다!</h3>
+                            <p>궁금한 규정이나 절차에 대해 질문해 주세요.</p>
+                            <div class="example-questions">
+                                <p><strong>예시 질문:</strong></p>
+                                <button class="example-btn" onclick="askQuestion('해외출장 Tier1 숙박비 상한은?')">
+                                    해외출장 숙박비 상한은?
+                                </button>
+                                <button class="example-btn" onclick="askQuestion('연차휴가는 몇 일까지?')">
+                                    연차휴가는 몇 일까지?
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input">
+                        <div class="input-container">
+                            <input 
+                                type="text" 
+                                id="questionInput" 
+                                placeholder="사내규정에 대해 질문해 주세요... (예: 해외출장 Tier1 숙박비는 얼마인가요?)"
+                                maxlength="200"
+                            >
+                            <button class="send-btn" onclick="handleQuestion()">
+                                <span class="send-icon">📤</span>
+                                전송
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 관리자 모달 -->
+    <div id="adminModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>관리자 로그인</h3>
+                <button class="modal-close" onclick="toggleAdminMode()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input 
+                    type="password" 
+                    id="adminPassword" 
+                    placeholder="관리자 비밀번호 입력"
+                    onkeypress="if(event.key==='Enter') adminLogin()"
+                >
+                <button onclick="adminLogin()">로그인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 관리자 패널 -->
+    <div id="adminPanel" class="admin-panel hidden">
+        <div class="admin-header">
+            <h3>관리자 패널</h3>
+            <button onclick="toggleAdminMode()">닫기</button>
+        </div>
+        <div class="admin-content">
+            <div class="admin-section">
+                <h4>규정 목록</h4>
+                <div id="regulationsList">
+                    <!-- 규정 목록이 여기에 표시됩니다 -->
+                </div>
+            </div>
+            <div class="admin-section">
+                <h4>질의응답 로그</h4>
+                <div id="queryLogs">
+                    <!-- 로그가 여기에 표시됩니다 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
