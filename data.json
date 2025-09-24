@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "lastUpdated": "2025-01-01",
+    "version": "1.0",
+    "totalPolicies": 6
+  },
+  "policies": [
+    {
+      "id": "HR-TRVL-2025-02",
+      "title": "출장 규정(국내/해외)",
+      "version": "v2.1",
+      "effectiveDate": "2025-01-15",
+      "owner": "총무팀",
+      "status": "active",
+      "category": "출장",
+      "sections": [
+        {
+          "section": "3",
+          "title": "비용 기준",
+          "content": "Tier1(서울, 도쿄, 뉴욕 등): 숙박 160,000원/박, 식비 35,000원/일, Tier2(기타): 숙박 120,000원/박, 식비 30,000원/일. 교통비는 실비 정산.",
+          "keywords": ["출장", "숙박비", "tier1", "tier2", "식비", "160000", "120000"],
+          "amounts": [160000, 120000, 35000, 30000],
+          "procedures": ["출장신청서", "영수증"],
+          "exceptions": []
+        },
+        {
+          "section": "4", 
+          "title": "승인 절차",
+          "content": "국내출장: 팀장 승인, 1박 초과시 본부장 승인 추가. 해외출장: 본부장 + CFO 사전 승인 필수",
+          "keywords": ["승인", "절차", "팀장", "본부장", "CFO"],
+          "amounts": ,
+          "procedures": ["팀장 승인", "본부장 승인", "CFO 승인"],
+          "exceptions": ["1박 초과시"]
+        },
+        {
+          "section": "7",
+          "title": "예외 및 특례", 
+          "content": "임원의 경우 Tier1 도시 숙박 상한을 200,000원까지 예외적으로 인정. 기타 특수상황은 CFO 개별 승인.",
+          "keywords": ["임원", "예외", "200000", "CFO"],
+          "amounts": [200000],
+          "procedures": ["CFO 승인"],
+          "exceptions": ["임원: 상한 20만원까지 허용"]
+        }
+      ]
+    },
+    {
+      "id": "HR-LEAVE-2025-01",
+      "title": "휴가/휴직 규정",
+      "version": "v3.0", 
+      "effectiveDate": "2025-01-01",
+      "owner": "HR운영팀",
+      "status": "active",
+      "category": "휴가",
+      "sections": [
+        {
+          "section": "1",
+          "title": "연차휴가",
+          "content": "입사 1년차 15일, 2년차부터 매년 1일씩 추가하여 최대 25일. 미사용시 익년 2월 말까지 이월 가능.",
+          "keywords": ["연차", "휴가", "15일", "25일", "이월"],
+          "amounts": [15, 25, 1, 2],
+          "procedures": ["연차신청서", "승인"],
+          "exceptions": ["2월 말까지 이월"]
+        }
+      ]
+    },
+    {
+      "id": "HR-WEL-2025-03", 
+      "title": "복리후생 지침",
+      "version": "v2.3",
+      "effectiveDate": "2025-03-01",
+      "owner": "복리후생팀",
+      "status": "active",
+      "category": "복리후생",
+      "sections": [
+        {
+          "section": "1",
+          "title": "복지포인트",
+          "content": "연간 1,000,000포인트 지급, 월할 계산시 100,000포인트. 12개월 미만 근무자는 600,000포인트.",
+          "keywords": ["복지포인트", "1000000", "100만", "600000"],
+          "amounts": [1000000, 600000, 12],
+          "procedures": ["자동지급", "월할계산"],
+          "exceptions": ["12개월 미만: 월할 계산"]
+        }
+      ]
+    }
+  ],
+  "commonQuestions": [
+    {
+      "question": "해외출장 Tier1 숙박비 상한은?",
+      "category": "출장",
+      "keywords": ["해외", "tier1", "숙박비"]
+    },
+    {
+      "question": "연차휴가는 몇 일까지?", 
+      "category": "휴가",
+      "keywords": ["연차", "휴가", "일수"]
+    },
+    {
+      "question": "복지포인트 연간 얼마?",
+      "category": "복리후생", 
+      "keywords": ["복지포인트", "연간"]
+    }
+  ]
+}
